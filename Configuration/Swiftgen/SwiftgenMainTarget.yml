@@ -1,0 +1,11 @@
+xcassets:
+  inputs:
+    - ../../Weather/Resources/Assets.xcassets
+    - ../../Weather/Resources/Colors.xcassets
+  outputs:
+    - templateName: swift4
+      output: Generated/Assets.swift
+      params:
+        publicAccess: public
+        enumName: WeatherResources
+        allValues: true

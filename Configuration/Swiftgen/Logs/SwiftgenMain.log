@@ -1,0 +1,3 @@
+Error: `./Configuration/Swiftgen/SwiftgenMainTarget.yml` is not a config file
+Usage: swiftgen config run [--config <config>] [--quiet] [--normal] [--verbose]
+  See 'swiftgen config run --help' for more information.
