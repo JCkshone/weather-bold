@@ -67,6 +67,7 @@ extension SearchCountryView {
         
         contentView.addSubview(scrollView)
         scrollView.snp.makeConstraints { $0.edges.equalTo(contentView) }
+        scrollView.keyboardDismissMode = .interactive
         
         searchContent.addSubview(textField)
         searchContent.addSubview(searchButton)
@@ -100,6 +101,7 @@ extension SearchCountryView {
         tableView.separatorStyle = .none
         tableView.register(SearchCountryItemTableViewCell.self,
                            forCellReuseIdentifier: SearchCountryItemTableViewCell.identifier)
+        tableView.keyboardDismissMode = .onDrag
         return tableView
     }
     
