@@ -22,7 +22,17 @@ extension LoadingView {
         loadingIndicator.startAnimating();
 
         alert.view.addSubview(loadingIndicator)
-//        present(alert, animated: true, completion: nil)
+        return alert
+    }
+    
+    func setupAlertView() -> UIAlertController {
+        let alert = UIAlertController(
+            title: .empty,
+            message: .empty,
+            preferredStyle: .alert
+        )
+        let action = UIAlertAction(title: "OK", style: .default)
+        alert.addAction(action)
         return alert
     }
 }

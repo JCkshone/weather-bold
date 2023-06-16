@@ -31,7 +31,6 @@ class SearchCountryViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel.onViewDidLoad()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -61,7 +60,7 @@ extension SearchCountryViewController {
         innerView.subjectActiveLocation
             .sink { [weak self] activeLocation in
                 guard let self = self else { return }
-
+                self.showAlert(with: "Alert", and: "Your select city was saved")
                 self.viewModel.onTapGoForecastInfo(with: activeLocation)
             }
             .store(in: &cancellables)
@@ -77,8 +76,7 @@ extension SearchCountryViewController {
             case .searching:
                 self.showLoading()
             case let .showGenericError(error):
-                self.hiddeLoading()
-                print(error.localizedDescription)
+                self.dismissAndShowAlert(with: "Error", and: error.localizedDescription)
             default:
                 break
             }
