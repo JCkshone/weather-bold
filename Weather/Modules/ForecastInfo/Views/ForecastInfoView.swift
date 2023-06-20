@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import Combine
 
 class ForecastInfoView: UIView {
     private lazy var contentView: UIView = setupContentView()
@@ -15,12 +16,15 @@ class ForecastInfoView: UIView {
     private lazy var forecastTodayView = ForecastTodayView()
     private lazy var forecastAirConditionView = ForecastAirConditionView()
     private lazy var forecastLastDayView = ForecastLastDayView()
+    private var cancellables = Set<AnyCancellable>()
+    var actionSubject = PassthroughSubject<Void, Never>()
     
     init() {
         super.init(frame: .zero)
         setupSubviews()
         setupConstraints()
         setupContent()
+        setupEvents()
     }
 
     @available(*, unavailable)
@@ -32,7 +36,7 @@ class ForecastInfoView: UIView {
 extension ForecastInfoView {
     
     func setupInfo(with info: ForecastInfo) {
-        headerStackView.subTitleLabel.text = info.weatherInfo.name
+        headerStackView.subTitleLabel.text = "Chance of rain: \(info.airCondition?.humidity ?? .zero)%"
         headerStackView.iconImageView.image = UIImage(named: info.icon)
         headerStackView.degreeTitleLabel.text = info.temp
         forecastTodayView.setupInfo(with: info.forecastToday)
@@ -95,5 +99,14 @@ extension ForecastInfoView {
             $0.top.equalToSuperview()
             $0.bottom.equalToSuperview()
         }
+    }
+    
+    func setupEvents() {
+        forecastAirConditionView
+            .showMoreButton
+            .publisher(for: .touchUpInside)
+            .sink { [weak self] _ in
+                self?.actionSubject.send(())
+            }.store(in: &cancellables)
     }
 }

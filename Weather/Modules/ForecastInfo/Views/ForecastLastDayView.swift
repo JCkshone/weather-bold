@@ -99,6 +99,7 @@ extension ForecastLastDayView {
         stackView.spacing = 8
         stackView.distribution = .equalSpacing
         stackView.isLayoutMarginsRelativeArrangement = true
+        stackView.addBorder(onSide: .bottom)
         return stackView
     }
 }
@@ -135,9 +136,17 @@ extension ForecastLastDayView {
     
     func setupDegreeLabel(_ currentDegree: String, _ averageDegree: String) -> UILabel {
         let label = UILabel()
-        label.text = currentDegree
         label.font = FontDefinition.description.font
         label.textColor = WeatherResources.Colors.gray.color
+        
+        let attributedString = NSMutableAttributedString(
+            string: "\(currentDegree) ",
+            attributes: [.font: FontDefinition.title.font ?? .boldSystemFont(ofSize: 14),
+                         .foregroundColor: WeatherColor.blueDark.color]
+        )
+
+        attributedString.append(NSMutableAttributedString(string: "/\(averageDegree)"))
+        label.attributedText = attributedString
         return label
     }
 }

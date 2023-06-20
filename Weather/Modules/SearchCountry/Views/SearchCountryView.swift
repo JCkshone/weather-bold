@@ -13,6 +13,7 @@ class SearchCountryView: UIView {
     private lazy var contentView: UIView = setupContentView()
     private lazy var searchContent: UIView = setupSearchContent()
     private lazy var tableView: UITableView = setupTableView()
+    private lazy var emptyLabel: UILabel = setupEmptyLabel()
     private var items: [WeatherResult] = []
     
     lazy var textField: UITextField = setupTextField()
@@ -23,6 +24,7 @@ class SearchCountryView: UIView {
         super.init(frame: .zero)
         setupSubViews()
         setupConstraint()
+        setupEmptyState()
     }
     
     @available(*, unavailable)
@@ -55,6 +57,15 @@ extension SearchCountryView {
             $0.leading.equalToSuperview()
             $0.trailing.equalTo(searchButton.snp.leading)
             $0.bottom.equalToSuperview()
+        }
+    }
+    
+    func setupEmptyState() {
+        addSubview(emptyLabel)
+        emptyLabel.snp.makeConstraints {
+            $0.leading.equalToSuperview().offset(32)
+            $0.trailing.equalToSuperview().offset(-32)
+            $0.centerY.equalToSuperview()
         }
     }
 }
@@ -134,6 +145,16 @@ extension SearchCountryView {
         button.setTitleColor(WeatherColor.blue.color, for: .normal)
         return button
     }
+    
+    func setupEmptyLabel() -> UILabel {
+        let label = UILabel()
+        label.text = "Search and select your favorite city"
+        label.font = FontDefinition.mediumLightTitle.font
+        label.textColor = WeatherColor.gray.color
+        label.numberOfLines = .zero
+        label.textAlignment = .center
+        return label
+    }
 }
 
 extension SearchCountryView: UITableViewDataSource, UITableViewDelegate {
@@ -169,6 +190,11 @@ extension SearchCountryView: UITableViewDataSource, UITableViewDelegate {
 extension SearchCountryView {
     func updateDataSource(with items: [WeatherResult]) {
         self.items = items
+        if items.isEmpty {
+            setupEmptyState()
+            return
+        }
+        emptyLabel.removeFromSuperview()
         tableView.reloadData()
     }
 }

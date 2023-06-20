@@ -10,11 +10,11 @@ import Combine
 
 class SplashViewController: UIViewController {
     private(set) lazy var innerView = SplashView()
+    private(set) var viewModel: SplashViewModelProtocol
     private var cancellables = Set<AnyCancellable>()
     
-    var coordinator: MainCoordinator?
-    
-    init() {
+    init(viewModel: SplashViewModelProtocol) {
+        self.viewModel = viewModel
         super.init(nibName: .none, bundle: .none)
     }
     
@@ -25,6 +25,7 @@ class SplashViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel.onViewDidLoad()
         setupActions()
     }
     override func viewDidDisappear(_ animated: Bool) {
@@ -43,7 +44,7 @@ extension SplashViewController {
             .publisher(for: .touchUpInside)
             .sink { [weak self] _ in
                 guard let self = self else { return }
-                self.coordinator?.goToHome()
+                self.viewModel.onTapLoadLocation()
             }.store(in: &cancellables)
     }
 }

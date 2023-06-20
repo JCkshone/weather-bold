@@ -54,6 +54,7 @@ class SearchCountryViewModel {
 extension SearchCountryViewModel: SearchCountryViewModelProtocol {
     
     func onTapSearchButton(with info: String) {
+        guard !info.isEmpty else { return }
         viewState = .searching
         store.dispatch(.search(info))
     }

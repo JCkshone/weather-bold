@@ -17,8 +17,9 @@ class MainCoordinator: Coordinator {
     }
     
     func start() {
-        let vc = SplashViewController()
-        vc.coordinator = self
+        let viewModel = SplashViewModel()
+        let vc = SplashViewController(viewModel: viewModel)
+        viewModel.coordinator = self
         navigationController.view.layer.add(
             Transitions.fade,
             forKey: nil
@@ -27,8 +28,7 @@ class MainCoordinator: Coordinator {
     }
     
     func goToHome() {
-        let vc = HomeViewController()
-        vc.coordinator = self
+        let vc = HomeViewController(coordinator: self)
         navigationController.view.layer.add(
             Transitions.fade,
             forKey: nil
@@ -37,7 +37,7 @@ class MainCoordinator: Coordinator {
     }
     
     func goToAirCondition() {
-        let vc = HomeViewController()
+        let vc = AirConditionViewController()
         vc.coordinator = self
         navigationController.view.layer.add(
             Transitions.fade,

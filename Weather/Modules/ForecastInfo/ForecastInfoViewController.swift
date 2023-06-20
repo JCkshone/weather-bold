@@ -12,6 +12,7 @@ class ForecastInfoViewController: BaseViewController {
     private(set) lazy var innerView = ForecastInfoView()
     private(set) var viewModel: ForecastViewModelProtocol
     private var cancellables = Set<AnyCancellable>()
+    var coordinator: MainCoordinator?
     
     init(viewModel: ForecastViewModelProtocol) {
         self.viewModel = viewModel
@@ -74,6 +75,8 @@ extension ForecastInfoViewController {
             case .loading:
                 self.showLoading()
             case let .loaded(info):
+                self.tabBarItem.title = info.weatherInfo.name;
+                self.navigationItem.title = info.weatherInfo.name;
                 self.hiddeLoading()
                 self.innerView.setupInfo(with: info)
             case let .showGenericError(error):
@@ -83,5 +86,10 @@ extension ForecastInfoViewController {
             }
         }
         .store(in: &cancellables)
+        
+        innerView.actionSubject.sink { [weak self] _ in
+            guard let self = self else { return }
+//            self.coordinator?.goToAirCondition()
+        }.store(in: &cancellables)
     }
 }

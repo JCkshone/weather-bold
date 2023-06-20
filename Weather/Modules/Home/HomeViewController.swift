@@ -8,7 +8,17 @@
 import UIKit
 
 class HomeViewController: UITabBarController {
-    var coordinator: MainCoordinator?
+    var coordinator: MainCoordinator
+    
+    init(coordinator: MainCoordinator) {
+        self.coordinator = coordinator
+        super.init(nibName: .none, bundle: .none)
+    }
+
+    @available(*, unavailable)
+    required init?(coder _: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,7 +62,9 @@ extension HomeViewController {
     
     func buildForecastInfo() -> ForecastInfoViewController {
         let viewModel = ForecastViewModel()
-        return ForecastInfoViewController(viewModel: viewModel)
+        let vc = ForecastInfoViewController(viewModel: viewModel)
+        vc.coordinator = self.coordinator
+        return vc
     }
 }
 

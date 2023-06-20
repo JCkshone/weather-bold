@@ -12,9 +12,9 @@ internal typealias ItemDefinition = (icon: ImageAsset, title: String, degree: St
 
 class ForecastAirConditionView: UIView {
     private lazy var stackView: UIStackView = setupStackView()
-    private lazy var showMoreButton: UIButton = setupShowMoreButton()
     private lazy var titleLabel: UILabel = setupTitleLabel()
     private var forecastAirCondition: ForecastCurrent?
+    lazy var showMoreButton: UIButton = setupShowMoreButton()
     
     init() {
         super.init(frame: .zero)
@@ -117,7 +117,7 @@ extension ForecastAirConditionView {
         let stackView = UIStackView()
         stackView.axis = .horizontal
         stackView.spacing = 8
-        stackView.distribution = .fillProportionally
+        stackView.distribution = .fillEqually
         stackView.isLayoutMarginsRelativeArrangement = true
         stackView.addArrangedSubviews(
             setupConditionItemsStackView(with: first),

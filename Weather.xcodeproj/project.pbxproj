@@ -36,6 +36,8 @@
 		679847022A36121000DA52FE /* ForecastTodayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 679847012A36121000DA52FE /* ForecastTodayView.swift */; };
 		679847052A36266500DA52FE /* ForecastTodayItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 679847042A36266500DA52FE /* ForecastTodayItemCollectionViewCell.swift */; };
 		679847072A36287400DA52FE /* UICollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 679847062A36287400DA52FE /* UICollectionViewCell.swift */; };
+		67B1CDA82A3E613E001BF747 /* AirConditionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67B1CDA72A3E613E001BF747 /* AirConditionViewController.swift */; };
+		67B1CDAB2A3E8288001BF747 /* AirConditionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67B1CDAA2A3E8288001BF747 /* AirConditionView.swift */; };
 		67B67F5A2A3830C100648093 /* SearchCountryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67B67F592A3830C100648093 /* SearchCountryView.swift */; };
 		67B67F5D2A38A4C200648093 /* SelectCountryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67B67F5C2A38A4C200648093 /* SelectCountryView.swift */; };
 		67B67F602A38A67700648093 /* SearchCountryItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67B67F5F2A38A67700648093 /* SearchCountryItemTableViewCell.swift */; };
@@ -132,6 +134,8 @@
 		679847012A36121000DA52FE /* ForecastTodayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastTodayView.swift; sourceTree = "<group>"; };
 		679847042A36266500DA52FE /* ForecastTodayItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastTodayItemCollectionViewCell.swift; sourceTree = "<group>"; };
 		679847062A36287400DA52FE /* UICollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewCell.swift; sourceTree = "<group>"; };
+		67B1CDA72A3E613E001BF747 /* AirConditionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirConditionViewController.swift; sourceTree = "<group>"; };
+		67B1CDAA2A3E8288001BF747 /* AirConditionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirConditionView.swift; sourceTree = "<group>"; };
 		67B67F592A3830C100648093 /* SearchCountryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCountryView.swift; sourceTree = "<group>"; };
 		67B67F5C2A38A4C200648093 /* SelectCountryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCountryView.swift; sourceTree = "<group>"; };
 		67B67F5F2A38A67700648093 /* SearchCountryItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCountryItemTableViewCell.swift; sourceTree = "<group>"; };
@@ -274,6 +278,7 @@
 		679846D72A32DF0700DA52FE /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				67B1CDA62A3E601E001BF747 /* AirCondition */,
 				679846F12A34E03A00DA52FE /* ForecastInfo */,
 				679846F02A34E01D00DA52FE /* SelectCountry */,
 				679846EF2A34E00200DA52FE /* SearchCountry */,
@@ -388,6 +393,23 @@
 				679847042A36266500DA52FE /* ForecastTodayItemCollectionViewCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		67B1CDA62A3E601E001BF747 /* AirCondition */ = {
+			isa = PBXGroup;
+			children = (
+				67B1CDA92A3E8216001BF747 /* Views */,
+				67B1CDA72A3E613E001BF747 /* AirConditionViewController.swift */,
+			);
+			path = AirCondition;
+			sourceTree = "<group>";
+		};
+		67B1CDA92A3E8216001BF747 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				67B1CDAA2A3E8288001BF747 /* AirConditionView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		67B67F582A3830AE00648093 /* Views */ = {
@@ -792,6 +814,7 @@
 				67BF35362A39880A005B9DAC /* FindCityUseCase.swift in Sources */,
 				679847052A36266500DA52FE /* ForecastTodayItemCollectionViewCell.swift in Sources */,
 				679846E82A33F7F500DA52FE /* SplashViewController.swift in Sources */,
+				67B1CDA82A3E613E001BF747 /* AirConditionViewController.swift in Sources */,
 				67BF35322A39880A005B9DAC /* SearchCountryAction.swift in Sources */,
 				67BF34E02A397C56005B9DAC /* UIControl.swift in Sources */,
 				67BF35382A3AA7E5005B9DAC /* SearchCountryViewModel.swift in Sources */,
@@ -835,6 +858,7 @@
 				679846FC2A35842F00DA52FE /* ForecastInfoView.swift in Sources */,
 				679846F72A35071900DA52FE /* SelectCountryViewController.swift in Sources */,
 				67BF35242A3984FB005B9DAC /* ForecastReducer.swift in Sources */,
+				67B1CDAB2A3E8288001BF747 /* AirConditionView.swift in Sources */,
 				67B67F602A38A67700648093 /* SearchCountryItemTableViewCell.swift in Sources */,
 				67BF35112A397F97005B9DAC /* WeatherDependencies.swift in Sources */,
 			);
@@ -1008,6 +1032,8 @@
 				DEVELOPMENT_TEAM = 8D755DRTSY;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Weather/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Your location is shared to the admin";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Your location is shared to the admin";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
@@ -1041,6 +1067,8 @@
 				DEVELOPMENT_TEAM = 8D755DRTSY;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Weather/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Your location is shared to the admin";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Your location is shared to the admin";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";

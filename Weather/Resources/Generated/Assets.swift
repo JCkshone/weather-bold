@@ -32,6 +32,7 @@ public enum WeatherResources {
     public static let _50 = ImageAsset(name: "50")
     public enum Sf {
       public static let arrowRight = ImageAsset(name: "SF/arrow.right")
+      public static let chevronLeft = ImageAsset(name: "SF/chevron.left")
       public static let cloudSunRainFill = ImageAsset(name: "SF/cloud.sun.rain.fill")
       public static let humidityFill = ImageAsset(name: "SF/humidity.fill")
       public static let listBullet = ImageAsset(name: "SF/list.bullet")
@@ -54,6 +55,7 @@ public enum WeatherResources {
       _11,
       _50,
       Sf.arrowRight,
+      Sf.chevronLeft,
       Sf.cloudSunRainFill,
       Sf.humidityFill,
       Sf.listBullet,
